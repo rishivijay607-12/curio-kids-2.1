@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Book of Curiosity | Science Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add Babel Standalone for in-browser JSX/TSX transpilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://esm.run/@google/genai",
+    "remark-gfm": "https://esm.sh/remark-gfm@4?bundle"
+  }
+}
+</script>
+<style>
+  @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+  }
+  @keyframes bounce {
+    0%, 80%, 100% {
+      transform: scale(0);
+    }
+    40% {
+      transform: scale(1.0);
+    }
+  }
+  @keyframes gentle-float {
+    0%, 100% {
+      transform: translateY(0) scale(1.0);
+    }
+    50% {
+      transform: translateY(-8px) scale(1.02);
+    }
+  }
+   @keyframes pan-background {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes orb-speak {
+      0% { box-shadow: 0 0 0 0px rgba(45, 212, 191, 0.7); }
+      100% { box-shadow: 0 0 0 40px rgba(45, 212, 191, 0); }
+  }
+  @keyframes avatar-speak {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+  }
+  .animate-avatar-speak {
+      animation: avatar-speak 1s ease-in-out infinite;
+  }
+  .animate-fade-in {
+      animation: fade-in 0.5s ease-out forwards;
+  }
+  /* Additional styles for better look and feel */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* For printing worksheets */
+  @media print {
+    .no-print, .no-print * {
+      display: none !important;
+    }
+    .printable-worksheet, .printable-worksheet * {
+      background: white !important;
+      color: black !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+    .worksheet-question {
+        page-break-inside: avoid;
+    }
+    .print-only {
+        display: block !important;
+    }
+    body {
+        background-color: white !important;
+    }
+  }
+</style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-900">
+  <div id="root"></div>
+  <!--
+    ==================================================================
+    IMPORTANT! YOUR API KEY GOES HERE!
+    ==================================================================
+    To make the app work, you must replace the placeholder text below
+    with your actual Google Gemini API Key.
+
+    Find the line:
+    API_KEY: "__GEMINI_API_KEY__"
+
+    And change it to look like this (but with your real key):
+    API_KEY: "AIzaSy...your...key...here..."
+    ==================================================================
+  -->
+  <script>
+    window.process = {
+      env: {
+        API_KEY: "__GEMINI_API_KEY__"
+      }
+    };
+  </script>
+  <!-- Change script type to 'text/babel' and add presets for React & TypeScript -->
+  <script type="text/babel" data-presets="react,typescript" src="./index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

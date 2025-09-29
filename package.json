@@ -1,0 +1,9 @@
+{
+  "name": "curio-kids",
+  "version": "1.0.1",
+  "description": "An interactive science quiz for Grades 6-10. AI generates an endless stream of questions, turning the school science curriculum into an exciting adventure.",
+  "private": true,
+  "scripts": {
+    "build": "sed -i \"s|__GEMINI_API_KEY__|${API_KEY}|g\" index.html"
+  }
+}
